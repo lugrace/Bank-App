@@ -12,6 +12,7 @@ import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.reimaginebanking.api.nessieandroidsdk.NessieError;
 import com.reimaginebanking.api.nessieandroidsdk.NessieResultsListener;
+import com.reimaginebanking.api.nessieandroidsdk.constants.TransactionMedium;
 import com.reimaginebanking.api.nessieandroidsdk.constants.TransactionType;
 import com.reimaginebanking.api.nessieandroidsdk.models.Account;
 import com.reimaginebanking.api.nessieandroidsdk.models.Customer;
@@ -64,9 +65,18 @@ public class MainActivity extends AppCompatActivity {
                         String curr = "Dunkin Donuts: 1107 19th St NW, Washington, DC, 20036"; //Our current location
                         if (bal - sumtosave > 0 && getLoc(arr, curr)) { //If they have $ in account and in location
                             bal = bal- sumtosave;
-                            Transfer trans = null;
-                            //if (c.getId() != null && s.getId() != null)
-                                 //trans = new Transfer("581e61b7360f81f1045476d5", "deposit", "2016-11-06", "pending", "balance", c.getId(), s.getId(), 2.0);
+
+                            Transfer.Builder temp = new Transfer.Builder();
+                            Transfer trans = temp.transactionDate("2016-11-06")
+                                    .medium(TransactionMedium.BALANCE)
+                                    .payeeId(s.getId())
+                                    .amount(2.0)
+                                    .description("hello")
+                                    .build();
+
+//                            Transfer trans1 = new Transfer(BATTERY_SERVICE)
+//                            //if (c.getId() != null && s.getId() != null)
+//                                 //trans = new Transfer("581e61b7360f81f1045476d5", "deposit", "2016-11-06", "pending", "balance", c.getId(), s.getId(), 2.0);
 
                             client.TRANSFER.createTransfer(c.getId(), trans, new NessieResultsListener() {
                                 @Override
