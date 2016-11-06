@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.test.gracelu.test3.MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BANK"
+        android:id="@+id/name"
+        tools:gravity="top|left|right"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="false"
+        android:layout_centerHorizontal="true"
+        android:textStyle="normal|bold"
+        android:textAllCaps="true"
+        android:textSize="30sp"
+        android:textColor="@color/colorAccent" />
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/name"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="Black-Listed Locations"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/textView3"
+                android:textSize="18sp"
+                android:textAllCaps="true" />
+
+            <TextView
+                android:text="Dunkin Donuts: 1101 14th St NW, Washington, DC, 20005"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/d1" />
+
+            <TextView
+                android:text="Dunkin Donuts: 1107 19th St NW, Washington, DC, 20036"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/d2" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Add another location..."
+                android:ems="10"
+                android:id="@+id/editText"
+                android:textSize="14sp" />
+
+            <TextView
+                android:text="where are you now"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/here"
+                android:textSize="24sp"
+                android:textColor="@android:color/holo_purple"
+                android:textAllCaps="true"
+                android:textAlignment="center" />
+
+            <ImageView
+                android:layout_width="356dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/dd"
+                android:id="@+id/imageView"
+                android:maxWidth="@dimen/activity_horizontal_margin"
+                android:minWidth="@android:dimen/thumbnail_height"
+                android:minHeight="179dp" />
+
+            <TextView
+                android:text="Warning! You are in a black-listed location, $2 will be transfered automatically."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/warn" />
+
+            <TextView
+                android:text="Success: $2 has been transfered from checking to savings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/message" />
+
+            <TextView
+                android:text="Your balance before: "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/balb" />
+
+            <TextView
+                android:text="Your balance after: "
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/bala" />
+
+            <TextView
+                android:text="You saved $2 dollars! Please leave before we inflict more consequences."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/saved" />
+        </LinearLayout>
+
+    </TableRow>
+
+</RelativeLayout>
