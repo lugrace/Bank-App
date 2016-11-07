@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final NessieClient client = NessieClient.getInstance("f1e4a8e47992316ea823dd7cae9507b1");
+        final NessieClient client = NessieClient.getInstance("");
         final String[] arr = {String.valueOf(R.id.d1), String.valueOf(R.id.d2)};
         client.CUSTOMER.getCustomer("581e61b7360f81f1045476d5", new NessieResultsListener() {
             @Override
