@@ -36,6 +36,9 @@ public class MainActivity extends AppCompatActivity {
 
         final NessieClient client = NessieClient.getInstance("f1e4a8e47992316ea823dd7cae9507b1");
         final String[] arr = {String.valueOf(R.id.d1), String.valueOf(R.id.d2)};
+        final TextView warn = (TextView) findViewById(R.id.warn);
+        final TextView message = (TextView) findViewById(R.id.message);
+        final TextView balance = (TextView) findViewById(R.id.balb);
         client.CUSTOMER.getCustomer("581e61b7360f81f1045476d5", new NessieResultsListener() {
             @Override
             public void onSuccess(Object result) {
@@ -60,18 +63,24 @@ public class MainActivity extends AppCompatActivity {
                             }
                         }
 
-                        int bal = c.getBalance();
+                        double bal = c.getBalance();
                         int sumtosave = 2; // figure out later
                         String curr = "Dunkin Donuts: 1107 19th St NW, Washington, DC, 20036"; //Our current location
+                        String currB = "Your checking balance $: " + bal;
+                        balance.setText(""+currB);
+                        //balance.appendText("" +bal);
+                        //balance.setText("I am setting text at balance")
                         if (bal - sumtosave > 0 && getLoc(arr, curr)) { //If they have $ in account and in location
                             bal = bal- sumtosave;
+                            //Send Warning in App that in black-listed location
+                            warn.setText(getString(R.string.warning)); //Warning!
 
                             Transfer.Builder temp = new Transfer.Builder();
                             Transfer trans = temp.transactionDate("2016-11-06")
                                     .medium(TransactionMedium.BALANCE)
                                     .payeeId(s.getId())
                                     .amount(2.0)
-                                    .description("hello")
+                                    .description("Transferring money")
                                     .build();
 
 //                            Transfer trans1 = new Transfer(BATTERY_SERVICE)
@@ -82,15 +91,15 @@ public class MainActivity extends AppCompatActivity {
                                 @Override
                                 public void onSuccess(Object result) {
                                     Log.d("success", result.toString(), null);
+                                    message.setText(getString(R.string.success));
                                 }
 
                                 @Override
                                 public void onFailure(NessieError error) {
                                     Log.d("error", error.getMessage(), null);
+                                    message.setText(getString(R.string.fail));
                                 }
                             });
-
-
                         }
                     }
 
