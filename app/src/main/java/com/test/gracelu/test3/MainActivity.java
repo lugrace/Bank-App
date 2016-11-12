@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final NessieClient client = NessieClient.getInstance("f1e4a8e47992316ea823dd7cae9507b1");
+        final NessieClient client = NessieClient.getInstance("");
         final String[] arr = {String.valueOf(R.id.d1), String.valueOf(R.id.d2)};
         final TextView warn = (TextView) findViewById(R.id.warn);
         final TextView message = (TextView) findViewById(R.id.message);
